@@ -1,0 +1,170 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tailwind Blog Template</title>
+    <meta name="author" content="David Grzyb">
+    <meta name="description" content="">
+
+    <!-- Tailwind -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.css" rel="stylesheet">
+    <style>
+        @import url('https://fonts.googleapis.com/css?family=Karla:400,700&display=swap');
+
+        .font-family-karla {
+            font-family: karla;
+        }
+    </style>
+
+    <!-- AlpineJS -->
+    <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.min.js" defer></script>
+    <!-- Font Awesome -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/js/all.min.js" integrity="sha256-KzZiKy0DWYsnwMF+X1DvQngQ2/FxF7MF3Ff72XcpuPs=" crossorigin="anonymous"></script>
+</head>
+<body class="bg-white font-family-karla">
+
+    <header class="bg-white shadow">
+        <nav class="container mx-auto px-6 py-3">
+          <div class="flex flex-col md:flex-row md:justify-between md:items-center">
+            <div class="flex justify-between items-center">
+              <div class="flex items-center">
+                <a class="text-gray-800 text-xl font-bold md:text-2xl hover:text-gray-700" href="#">Brand</a>
+      
+                <!-- Search input on desktop screen -->
+                <div class="mx-10 hidden md:block">
+                  <input type="text" class="w-32 lg:w-64 px-4 py-3 leading-tight text-sm text-gray-700 bg-gray-100 rounded-md placeholder-gray-500 border border-transparent focus:outline-none focus:bg-white focus:shadow-outline focus:border-blue-400" placeholder="Search" aria-label="Search">
+                </div>
+              </div>
+      
+              <!-- Mobile menu button -->
+              <div class="flex md:hidden">
+                <button @click="isOpen = !isOpen" type="button" class="text-gray-500 hover:text-gray-600 focus:outline-none focus:text-gray-600" aria-label="toggle menu">
+                  <svg viewBox="0 0 24 24" class="h-6 w-6 fill-current">
+                    <path fill-rule="evenodd" d="M4 5h16a1 1 0 0 1 0 2H4a1 1 0 1 1 0-2zm0 6h16a1 1 0 0 1 0 2H4a1 1 0 0 1 0-2zm0 6h16a1 1 0 0 1 0 2H4a1 1 0 0 1 0-2z"></path>
+                  </svg>
+                </button>
+              </div>
+            </div>
+      
+            <!-- Mobile Menu open: "block", Menu closed: "hidden" -->
+            <div class="md:flex items-center" :class="isOpen ? 'block' : 'hidden'">
+              <div class="flex items-center py-2 -mx-1 md:mx-0">
+                <a class="block w-1/2 px-3 py-2 mx-1 rounded text-center text-sm bg-gray-500 font-medium text-white leading-5 hover:bg-blue-600 md:mx-2 md:w-auto" href="#">Login</a>
+                <a class="block w-1/2 px-3 py-2 mx-1 rounded text-center text-sm bg-blue-500 font-medium text-white leading-5 hover:bg-blue-600 md:mx-0 md:w-auto" href="#">Join free</a>
+              </div>
+      
+              <!-- Search input on mobile screen -->
+              <div class="mt-3 md:hidden">
+                <input type="text" class="w-full px-4 py-3 leading-tight text-sm text-gray-700 bg-gray-100 rounded-md placeholder-gray-500 focus:outline-none focus:bg-white focus:shadow-outline" placeholder="Search" aria-label="Search">
+              </div>
+            </div>
+          </div>
+        </nav>
+      </header>
+
+    <div class="container mx-auto flex flex-wrap py-6">
+
+        <aside class="w-full md:w-1/5 flex flex-col items-center px-3">
+
+            <div class="w-full bg-white shadow flex flex-col my-4 p-6">
+                <p class="text-xl font-semibold pb-5">About Us</p>
+                <p class="pb-2">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas mattis est eu odio sagittis tristique. Vestibulum ut finibus leo. In hac habitasse platea dictumst.</p>
+                <a href="#" class="w-full bg-blue-800 text-white font-bold text-sm uppercase rounded hover:bg-blue-700 flex items-center justify-center px-2 py-3 mt-4">
+                    Get to know us
+                </a>
+            </div>
+
+            <div class="w-full bg-white shadow flex flex-col my-4 p-6">
+                <p class="text-xl font-semibold pb-5">Instagram</p>
+
+                <a href="#" class="w-full bg-blue-800 text-white font-bold text-sm uppercase rounded hover:bg-blue-700 flex items-center justify-center px-2 py-3 mt-6">
+                    <i class="fab fa-instagram mr-2"></i> Follow @dgrzyb
+                </a>
+            </div>
+
+        </aside>
+
+        <!-- Posts Section -->
+        <section class="w-full md:w-3/5 flex flex-col items-center px-3">
+
+            <article class="flex flex-col shadow my-4">
+                <!-- Article Image -->
+                <a href="#" class="hover:opacity-75">
+                    <img src="https://source.unsplash.com/collection/1346951/1000x500?sig=1">
+                </a>
+                <div class="bg-white flex flex-col justify-start p-6">
+                    <a href="#" class="text-blue-700 text-sm font-bold uppercase pb-4">Technology</a>
+                    <a href="#" class="text-3xl font-bold hover:text-gray-700 pb-4">Lorem Ipsum Dolor Sit Amet Dolor Sit Amet</a>
+                    <p href="#" class="text-sm pb-3">
+                        By <a href="#" class="font-semibold hover:text-gray-800">David Grzyb</a>, Published on April 25th, 2020
+                    </p>
+                    <a href="#" class="pb-6">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus quis porta dui. Ut eu iaculis massa. Sed ornare ligula lacus, quis iaculis dui porta volutpat. In sit amet posuere magna..</a>
+                    <a href="#" class="uppercase text-gray-800 hover:text-black">Continue Reading <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </article>
+
+            <!-- Pagination -->
+            <div class="flex items-center py-8">
+                <a href="#" class="h-10 w-10 bg-blue-800 hover:bg-blue-600 font-semibold text-white text-sm flex items-center justify-center">1</a>
+                <a href="#" class="h-10 w-10 font-semibold text-gray-800 hover:bg-blue-600 hover:text-white text-sm flex items-center justify-center">2</a>
+                <a href="#" class="h-10 w-10 font-semibold text-gray-800 hover:text-gray-900 text-sm flex items-center justify-center ml-3">Next <i class="fas fa-arrow-right ml-2"></i></a>
+            </div>
+
+        </section>
+
+        <!-- Sidebar Section -->
+        <aside class="w-full md:w-1/5 flex flex-col items-center px-3">
+
+            <div class="w-full bg-white shadow flex flex-col my-4 p-6">
+                <p class="text-xl font-semibold pb-5">About Us</p>
+                <p class="pb-2">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas mattis est eu odio sagittis tristique. Vestibulum ut finibus leo. In hac habitasse platea dictumst.</p>
+                <a href="#" class="w-full bg-blue-800 text-white font-bold text-sm uppercase rounded hover:bg-blue-700 flex items-center justify-center px-2 py-3 mt-4">
+                    Get to know us
+                </a>
+            </div>
+
+            <div class="w-full bg-white shadow flex flex-col my-4 p-6">
+                <p class="text-xl font-semibold pb-5">Instagram</p>
+
+                <a href="#" class="w-full bg-blue-800 text-white font-bold text-sm uppercase rounded hover:bg-blue-700 flex items-center justify-center px-2 py-3 mt-6">
+                    <i class="fab fa-instagram mr-2"></i> Follow @dgrzyb
+                </a>
+            </div>
+
+        </aside>
+
+    </div>
+
+    <footer class="w-full border-t bg-white pb-12">
+        
+    </footer>
+
+    <script>
+        function getCarouselData() {
+            return {
+                currentIndex: 0,
+                images: [
+                    'https://source.unsplash.com/collection/1346951/800x800?sig=1',
+                    'https://source.unsplash.com/collection/1346951/800x800?sig=2',
+                    'https://source.unsplash.com/collection/1346951/800x800?sig=3',
+                    'https://source.unsplash.com/collection/1346951/800x800?sig=4',
+                    'https://source.unsplash.com/collection/1346951/800x800?sig=5',
+                    'https://source.unsplash.com/collection/1346951/800x800?sig=6',
+                    'https://source.unsplash.com/collection/1346951/800x800?sig=7',
+                    'https://source.unsplash.com/collection/1346951/800x800?sig=8',
+                    'https://source.unsplash.com/collection/1346951/800x800?sig=9',
+                ],
+                increment() {
+                    this.currentIndex = this.currentIndex === this.images.length - 6 ? 0 : this.currentIndex + 1;
+                },
+                decrement() {
+                    this.currentIndex = this.currentIndex === this.images.length - 6 ? 0 : this.currentIndex - 1;
+                },
+            }
+        }
+    </script>
+
+</body>
+</html>
